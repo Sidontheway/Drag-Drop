@@ -16,7 +16,7 @@ const DroppableArea = ({ children, onDrop }) => {
     <div
       onDrop={handleDrop}
       onDragOver={handleDragOver}
-      style={{ border: '1px dashed black', width: '300px', height: '200px', marginTop: '10px' }}
+      // style={{ border: '1px dashed black', width: '300px', height: '200px', marginTop: '10px' }}
     >
       {children}
     </div>

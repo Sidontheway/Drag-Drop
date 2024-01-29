@@ -48,17 +48,17 @@ const Home = () => {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="flex justify-items-center bg-slate-600 gap-20 ">
-        <div className="w-1/6 text-lg text-white font-semibold gap-3">
-          <h2>Draggable Content</h2>
+      <div className="flex justify-items-center bg-slate-600 gap-20 min-h-svh p-5 ">
+        <div className="w-1/6 text-lg text-white font-semibold gap-3 mr-3">
+          <h2>Website Toolbar</h2>
 
           <input
             type="text"
             value={inputValue}
             onChange={handleChange}
-            className="text-black font-semibold"
+            className="text-black font-semibold w-full mr-5 ml-2 pl-1 rounded-sm mt-5"
           />
-          <button onClick={getValue} className="p-2 rounded-full bg-green-600">Add Value</button>
+          <button onClick={getValue} className="p-2 rounded-full bg-green-600 mt-2 mb-5">Add Value</button>
 
           {draggableItems.map(item => (
             <DraggableItem key={item.id} id={item.id} text={item.text} left={true} />
@@ -68,17 +68,14 @@ const Home = () => {
           <div>
             <ImageSelector onImageSelect={handleImageSelect} />
             <DroppableArea onDrop={handleImageDrop}>
-              {/* {images.map((imageUrl, index) => (
-                <DraggableImage key={index} imageUrl={imageUrl} onDragStart={(e, url) => e.dataTransfer.setData('text/plain', url)} />
-              ))} */}
             </DroppableArea>
           </div>
 
         </div>
 
-        <div className="w-full h-100vh border border-slate-900  text-white text-2xl justify-center items-center">
-          <DroppableContainer onDrop={handleDrop} >
-            <h2>Dragged Content</h2>
+        <DroppableContainer onDrop={handleDrop}  >
+          <div className=" w-[150%] h-100vh border-l-4  border-slate-900  text-white text-2xl justify-center items-center ml-5">
+            <h2 className=' mx-10'>Website Builder</h2>
             <div className="items-center">
               {draggedItems.map(item => (
                 <>
@@ -86,16 +83,19 @@ const Home = () => {
                 </>
               ))}
 
-              {/* For image field ==> DO like done for text field  */}
-              {/* <DroppableArea onDrop= */}
-                {images.map((imageUrl, index) => (
-                  <DraggableImage key={index} imageUrl={imageUrl} onDragStart={(e, url) => e.dataTransfer.setData('text/plain', url)} />
-                ))}
-              {/* </DroppableArea> */}
+              {images.map((imageUrl, index) => (
+                <DraggableImage key={index} imageUrl={imageUrl} onDragStart={(e, url) => e.dataTransfer.setData('text/plain', url)} />
+              ))}
+
 
             </div>
-          </DroppableContainer>
-        </div>
+          </div>
+        </DroppableContainer>
+
+        <button
+          className='absolute top-0 right-10 rounded-lg bg-green-600 p-2 text-lg font-semibold text-white'
+          onClick={() => { window.alert("Website has been Saved") }}
+        >Save</button>
       </div>
     </DndProvider>
   );

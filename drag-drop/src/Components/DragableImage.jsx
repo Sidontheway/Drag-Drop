@@ -8,7 +8,7 @@ const DraggableImage = ({ imageUrl, onDragStart }) => {
       alt="Draggable"
       draggable
       onDragStart={(e) => onDragStart(e, imageUrl)}
-      style={{ maxWidth: '100%', cursor: 'move' }}
+      style={{ maxWidth: '100%', cursor: 'move',marginLeft:15 }}
     />
   );
 };
